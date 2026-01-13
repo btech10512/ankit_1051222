@@ -1,6 +1,7 @@
 import express, { urlencoded } from "express"
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import taskRouter from "./routes/task.routes.js";
 const app = express();
 
 // basic configurations
@@ -19,6 +20,8 @@ app.use(cors({
 import authRouter from "./routes/auth.routes.js";
 
 app.use("/api/v1/auth",authRouter);
+
+app.use("/api/v1/tasks", taskRouter);
 
 
 export default app;
