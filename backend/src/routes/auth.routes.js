@@ -1,24 +1,7 @@
-import { Router } from "express";
-import {
-  registerUser,
-  loginUser,
-  logoutUser,
-  getCurrentUser,
-  updateUser,
-  deleteUser
-} from "../controllers/auth.controller.js";
-import { verifyJWT } from "../middlewares/auth.middleware.js";
+const router = require("express").Router();
+const { register, login } = require("../controllers/auth.controller");
 
-const router = Router();
+router.post("/register", register);
+router.post("/login", login);
 
-// Public routes
-router.post("/register", registerUser);
-router.post("/login", loginUser);
-
-// Protected routes
-router.post("/logout", verifyJWT, logoutUser);
-router.get("/me", verifyJWT, getCurrentUser);
-router.patch("/me", verifyJWT, updateUser);
-router.delete("/me", verifyJWT, deleteUser);
-
-export default router;
+module.exports = router;

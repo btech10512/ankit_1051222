@@ -1,21 +1,11 @@
-import { Router } from "express";
-import {
-  createTask,
-  getTasks,
-  updateTask,
-  deleteTask,
-  updateTaskStatus,
-} from "../controllers/task.controller.js";
-import { verifyJWT } from "../middlewares/auth.middleware.js";
+const router = require("express").Router();
+const auth = require("../middleware/auth.middleware");
+const controller = require("../controllers/task.controller");
 
-const router = Router();
+router.use(auth);
+router.post("/", controller.createTask);
+router.get("/", controller.getTasks);
+router.put("/:id", controller.updateTask);
+router.delete("/:id", controller.deleteTask);
 
-router.use(verifyJWT); // protect all routes
-
-router.post("/", createTask);
-router.get("/", getTasks);
-router.patch("/:id", updateTask);
-router.delete("/:id", deleteTask);
-router.patch("/:id/status", updateTaskStatus);
-
-export default router;
+module.exports = router;
