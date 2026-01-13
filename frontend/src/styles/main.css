@@ -289,3 +289,139 @@ button.primary-btn,
   background: #ef4444;
   color: white;
 }
+/* --- PROFILE PAGE SPECIFIC --- */
+.prof-center {
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+}
+
+.prof-card {
+  background: #121214; /* Surface color */
+  border: 1px solid #27272a;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.prof-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #27272a;
+  padding-bottom: 1.5rem;
+}
+
+.prof-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.prof-subtitle {
+  color: #71717a;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* --- INPUT GROUPS --- */
+.prof-input-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.prof-input-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #a1a1aa;
+}
+
+.prof-input {
+  background: #09090b !important;
+  border: 1px solid #27272a !important;
+  color: #fafafa !important;
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.prof-input:focus {
+  border-color: #38bdf8 !important;
+  outline: none;
+}
+
+/* --- BUTTONS --- */
+.prof-btn-primary {
+  width: 100%;
+  background: #fafafa;
+  color: #000;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.2s;
+}
+
+.prof-btn-primary:hover {
+  background: #e4e4e7;
+  transform: translateY(-1px);
+}
+
+/* --- DANGER ZONE --- */
+.prof-danger-zone {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #27272a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.danger-text h4 {
+  margin: 0;
+  color: #ef4444;
+  font-size: 1rem;
+}
+
+.danger-text p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.8rem;
+  color: #71717a;
+}
+
+.prof-btn-danger {
+  background: transparent;
+  border: 1px solid #450a0a;
+  color: #ef4444;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.prof-btn-danger:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 640px) {
+  .prof-card {
+    padding: 1.5rem;
+    border: none;
+    background: transparent;
+  }
+
+  .prof-danger-zone {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
