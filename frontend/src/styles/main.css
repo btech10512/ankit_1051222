@@ -1,0 +1,185 @@
+:root {
+  /* Modern Dark Theme Palette (Zinc) */
+  --bg-body: #09090b;
+  --bg-card: #18181b;
+  --bg-card-hover: #27272a;
+  --border-color: #27272a;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent-primary: #f4f4f5; /* White/Off-white for primary actions */
+  --accent-danger: #ef4444;
+  --nav-height: 64px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-body);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* --- Layout Utilities --- */
+.container {
+  max-width: 1200px; /* Wider for professional feel */
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.page-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Navigation Bar --- */
+/* ... keep your :root and generic body styles ... */
+
+/* --- Navigation Bar --- */
+.navbar {
+  height: var(--nav-height);
+  background: rgba(9, 9, 11, 0.6); /* More transparency for modern glass effect */
+  backdrop-filter: blur(12px);      /* Stronger blur */
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* Key for Left/Right split */
+  padding: 0 2rem;
+  width: 100%;
+}
+
+/* Container to limit width on large screens */
+.navbar-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Left side group */
+.nav-links-group {
+  display: flex;
+  gap: 8px; /* Spacing between pill buttons */
+  align-items: center;
+}
+
+/* Modern Nav Links (Pill Style) */
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-card-hover); /* Subtle background on hover */
+}
+
+/* Logout Button styling */
+.logout-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.1); /* Subtle red tint */
+  color: var(--accent-danger);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* --- Forms & Buttons --- */
+input, select, textarea {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #52525b;
+}
+
+/* Login/Register Card */
+.card {
+  background: var(--bg-card);
+  padding: 32px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid var(--border-color);
+}
+
+.card h2 {
+  margin-top: 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Primary Button (Green/White style) */
+button.primary-btn, 
+.add-task-btn {
+  background: var(--text-primary);
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  width: auto;
+}
+
+.add-task-btn:hover {
+  opacity: 0.9;
+}
+
+/* ---------- Modal Layout Fix ---------- */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+}

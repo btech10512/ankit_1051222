@@ -1,0 +1,142 @@
+/* Board Layout */
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Equal columns */
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Column Container */
+.kanban-column {
+  background: #121214; /* Slightly lighter than body */
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s;
+}
+
+.kanban-column.drag-over {
+  background: #1a1a1c;
+  border-color: #52525b;
+}
+
+/* Column Headers */
+.kanban-column h3 {
+  margin: 0 0 16px 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Colored Dots for Status using Data Attributes */
+.kanban-column[data-status="pending"] h3::before {
+  content: ''; width: 8px; height: 8px; background: #eab308; border-radius: 50%; box-shadow: 0 0 8px rgba(234, 179, 8, 0.4);
+}
+.kanban-column[data-status="in-progress"] h3::before {
+  content: ''; width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+.kanban-column[data-status="completed"] h3::before {
+  content: ''; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+}
+
+/* Task Cards */
+.task-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  cursor: grab;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.task-card:hover {
+  border-color: #52525b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.task-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.task-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+/* Task Card Footer (Date & Delete) */
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #27272a;
+}
+
+.task-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: monospace; /* Professional tech feel */
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+
+.delete-btn:hover {
+  color: var(--accent-danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Modal Styling Overrides */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.modal-card {
+  background: #18181b;
+  border: 1px solid #27272a;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.modal-actions {
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+.modal-actions button {
+  width: auto;
+  padding: 8px 16px;
+}
+.modal-actions .secondary {
+  background: transparent;
+  border: 1px solid var(--border-color);
+}
+.modal-actions .secondary:hover {
+  background: var(--bg-card-hover);
+}
